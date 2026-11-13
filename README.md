@@ -82,3 +82,27 @@ This module demonstrates Java Object-Oriented Programming concepts through a con
 
 ### Learning Outcome
 Practised Java OOP concepts by building a Banking Management System.
+
+
+## Module 04 – Java Database & JDBC
+Duration: Day 16 – Day 20
+
+### Topics Covered
+- Database and SQL Fundamentals
+- MySQL Database Setup
+- JDBC Architecture
+- JDBC Connections
+- Statement and PreparedStatement
+- CRUD Operations
+- Transaction Management
+- Commit and Rollback
+
+### Project
+Banking Management System using Java and MySQL
+
+### Technologies
+- Java
+- JDBC
+- MySQL
+- VS Code
+- Git and GitHub

@@ -41,3 +41,44 @@ java -cp out StudentManagementSystem
 | File handling | BufferedReader, BufferedWriter, try-with-resources |
 
 This is an educational console project, not production software.
+
+
+
+
+# Module 03 – Object-Oriented Programming in Java
+
+## Project: Banking Management System
+
+This module demonstrates Java Object-Oriented Programming concepts through a console-based banking application.
+
+### Concepts Covered
+- Classes and Objects
+- Constructors
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Abstraction
+- Interfaces
+- Method Overriding
+
+### Project Features
+- Create Savings and Current accounts
+- Deposit money
+- Withdraw money
+- Check account balance
+- View transaction history
+- Display all accounts
+
+### Technologies
+- Java
+- ArrayList
+- HashMap
+- Exception Handling
+
+### Files
+- BankingManagementSystem.java
+- CLASS_DIAGRAM.md
+- DESIGN_DOCUMENTATION.md
+
+### Learning Outcome
+Practised Java OOP concepts by building a Banking Management System.

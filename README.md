@@ -60,3 +60,307 @@ For POST and PUT, send all three fields. Email addresses must be valid and uniqu
 
 ## Postman
 Import `postman/UserManagementAPI.postman_collection.json` into Postman. Run requests in order; create a user first to test the other endpoints. The collection uses a `baseUrl` variable and a sample ID of `1`.
+
+
+
+
+# User Management System
+
+A RESTful User Management System developed using Java, Spring Boot, Spring Data JPA, Hibernate, and MySQL.
+
+This project allows users to create, view, update, and delete user details through REST API endpoints.
+
+## 1. Project Overview
+
+The User Management System provides CRUD (Create, Read, Update, Delete) operations for managing user information.
+
+### Features
+
+- Add a new user
+- View all users
+- View a user by ID
+- Update user details
+- Delete a user
+- Validate user input
+- Handle exceptions
+- Prevent duplicate email addresses
+- Store user information in MySQL database
+
+## 2. Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Java 17 | Programming language |
+| Spring Boot 3.5.7 | Backend framework |
+| Spring Web | REST API development |
+| Spring Data JPA | Database operations |
+| Hibernate | ORM framework |
+| MySQL | Relational database |
+| Maven | Dependency management |
+| Postman | API testing |
+| VS Code | Development environment |
+
+## 3. Project Structure
+
+```text
+UserManagementSystem/
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/example/usermanagement/
+│       │       ├── UsermanagementApplication.java
+│       │       │
+│       │       ├── controller/
+│       │       │   └── UserController.java
+│       │       │
+│       │       ├── entity/
+│       │       │   └── User.java
+│       │       │
+│       │       ├── repository/
+│       │       │   └── UserRepository.java
+│       │       │
+│       │       ├── service/
+│       │       │   └── UserService.java
+│       │       │
+│       │       └── exception/
+│       │           ├── UserNotFoundException.java
+│       │           ├── DuplicateEmailException.java
+│       │           └── GlobalExceptionHandler.java
+│       │
+│       └── resources/
+│           └── application.properties
+│
+├── database.sql
+├── postman/
+│   └── UserManagementAPI.postman_collection.json
+├── pom.xml
+└── README.md
+```
+
+## 4. Database Configuration
+
+Create a MySQL database:
+
+```sql
+CREATE DATABASE user_management;
+```
+
+Configure your `application.properties` file:
+
+```properties
+spring.application.name=usermanagement
+
+spring.datasource.url=jdbc:mysql://localhost:3306/user_management?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=YOUR_MYSQL_PASSWORD
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+
+server.port=8080
+```
+
+Replace `YOUR_MYSQL_PASSWORD` with your actual MySQL password.
+
+## 5. How to Run the Project
+
+### Step 1: Clone or Download the Project
+
+Open the project folder in VS Code.
+
+### Step 2: Check Java Version
+
+```bash
+java -version
+```
+
+### Step 3: Check Maven Version
+
+```bash
+mvn -version
+```
+
+### Step 4: Start MySQL Server
+
+Make sure your MySQL Server is running.
+
+### Step 5: Run the Spring Boot Application
+
+Open the terminal inside the project directory:
+
+```bash
+mvn clean spring-boot:run
+```
+
+If successful, the application starts on:
+
+```text
+http://localhost:8080
+```
+
+## 6. REST API Endpoints
+
+Base URL:
+
+```text
+http://localhost:8080/api/users
+```
+
+| HTTP Method | Endpoint | Description |
+|---|---|---|
+| POST | /api/users | Add a new user |
+| GET | /api/users | Get all users |
+| GET | /api/users/{id} | Get user by ID |
+| PUT | /api/users/{id} | Update user |
+| DELETE | /api/users/{id} | Delete user |
+
+## 7. API Testing Using Postman
+
+### 1. Add User
+
+Method: POST
+
+URL:
+
+```text
+http://localhost:8080/api/users
+```
+
+Request Body:
+
+```json
+{
+  "name": "Jeeva",
+  "email": "jeeva@example.com",
+  "phone": "9876543210"
+}
+```
+
+### 2. Get All Users
+
+Method: GET
+
+```text
+http://localhost:8080/api/users
+```
+
+### 3. Get User By ID
+
+Method: GET
+
+```text
+http://localhost:8080/api/users/1
+```
+
+### 4. Update User
+
+Method: PUT
+
+```text
+http://localhost:8080/api/users/1
+```
+
+Request Body:
+
+```json
+{
+  "name": "Jeevalakshmi",
+  "email": "jeeva@example.com",
+  "phone": "9876543210"
+}
+```
+
+### 5. Delete User
+
+Method: DELETE
+
+```text
+http://localhost:8080/api/users/1
+```
+
+## 8. Validation and Exception Handling
+
+The application includes:
+
+- Name validation
+- Email format validation
+- Required field validation
+- Duplicate email exception handling
+- User not found exception handling
+- Global exception handling
+
+Common HTTP status codes:
+
+| Status Code | Meaning |
+|---|---|
+| 200 | Successful request |
+| 201 | User created |
+| 204 | User deleted |
+| 400 | Invalid input |
+| 404 | User not found |
+| 409 | Duplicate email |
+| 500 | Internal server error |
+
+## 9. Architecture
+
+The project follows a layered architecture:
+
+```text
+Client (Postman)
+       |
+       v
+Controller Layer
+       |
+       v
+Service Layer
+       |
+       v
+Repository Layer
+       |
+       v
+MySQL Database
+```
+
+### Layer Responsibilities
+
+- Controller: Handles HTTP requests and responses.
+- Service: Implements business logic.
+- Repository: Communicates with the database.
+- Entity: Represents the User database table.
+- Exception: Handles application errors.
+
+## 10. Learning Outcomes
+
+By completing this project, I learned:
+
+- Spring Boot application development
+- REST API creation
+- HTTP methods and status codes
+- MVC architecture
+- Spring Data JPA and Hibernate
+- MySQL database connectivity
+- CRUD operations
+- Input validation
+- Custom exception handling
+- API testing using Postman
+
+## 11. Future Enhancements
+
+- User authentication using Spring Security
+- JWT-based authorization
+- Pagination and sorting
+- Search users by name or email
+- Frontend integration using React
+
+## 12. Author
+
+**Jeevalakshmi Alagiri**
+
+B.E. Computer Science and Engineering
+
+**Project:** User Management System
+
+**Domain:** Java Backend Development
+
